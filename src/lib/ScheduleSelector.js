@@ -308,7 +308,11 @@ export default class ScheduleSelector extends React.Component<PropsType, StateTy
     this.dates[0].forEach(time => {
       labels.push(
         <TimeLabelCell key={time.toString()}>
-          <TimeText>{formatDate(time, this.props.timeFormat)}</TimeText>
+          <TimeText>
+            {formatDate(time, this.props.timeFormat, {
+              locale: ptbr
+            })}
+          </TimeText>
         </TimeLabelCell>
       )
     })
