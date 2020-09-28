@@ -9,6 +9,7 @@ import addHours from 'date-fns/add_hours'
 import addDays from 'date-fns/add_days'
 import startOfDay from 'date-fns/start_of_day'
 import isSameMinute from 'date-fns/is_same_minute'
+import pt from 'date-fns/locale/pt'
 import formatDate from 'date-fns/format'
 
 import { Text, Subtitle } from './typography'
@@ -308,7 +309,11 @@ export default class ScheduleSelector extends React.Component<PropsType, StateTy
     this.dates[0].forEach(time => {
       labels.push(
         <TimeLabelCell key={time.toString()}>
-          <TimeText>{renderInBrLocale(formatDate(time, this.props.timeFormat))}</TimeText>
+          <TimeText>
+            {formatDate(time, this.props.timeFormat, {
+              locale: pt
+            })}
+          </TimeText>
         </TimeLabelCell>
       )
     })
@@ -318,7 +323,11 @@ export default class ScheduleSelector extends React.Component<PropsType, StateTy
   renderDateColumn = (dayOfTimes: Array<Date>) => (
     <Column key={dayOfTimes[0].toString()} margin={this.props.margin}>
       <GridCell margin={this.props.margin}>
-        <DateLabel>{renderInBrLocale(formatDate(dayOfTimes[0], this.props.dateFormat))}</DateLabel>
+        <DateLabel>
+          {formatDate(dayOfTimes[0], this.props.dateFormat, {
+            locale: pt
+          })}
+        </DateLabel>
       </GridCell>
       {dayOfTimes.map(time => this.renderDateCellWrapper(time))}
     </Column>

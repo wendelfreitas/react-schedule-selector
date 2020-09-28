@@ -31,6 +31,10 @@ var _is_same_minute = require('date-fns/is_same_minute');
 
 var _is_same_minute2 = _interopRequireDefault(_is_same_minute);
 
+var _pt = require('date-fns/locale/pt');
+
+var _pt2 = _interopRequireDefault(_pt);
+
 var _format = require('date-fns/format');
 
 var _format2 = _interopRequireDefault(_format);
@@ -138,7 +142,9 @@ var ScheduleSelector = function (_React$Component) {
           React.createElement(
             TimeText,
             null,
-            (0, _dateUtils.renderInBrLocale)((0, _format2.default)(time, _this.props.timeFormat))
+            (0, _format2.default)(time, _this.props.timeFormat, {
+              locale: _pt2.default
+            })
           )
         ));
       });
@@ -159,7 +165,9 @@ var ScheduleSelector = function (_React$Component) {
           React.createElement(
             DateLabel,
             null,
-            (0, _dateUtils.renderInBrLocale)((0, _format2.default)(dayOfTimes[0], _this.props.dateFormat))
+            (0, _format2.default)(dayOfTimes[0], _this.props.dateFormat, {
+              locale: _pt2.default
+            })
           )
         ),
         dayOfTimes.map(function (time) {
