@@ -9,7 +9,6 @@ import addHours from 'date-fns/add_hours'
 import addDays from 'date-fns/add_days'
 import startOfDay from 'date-fns/start_of_day'
 import isSameMinute from 'date-fns/is_same_minute'
-import pt from 'date-fns/locale/pt'
 import formatDate from 'date-fns/format'
 
 import { Text, Subtitle } from './typography'
@@ -309,7 +308,7 @@ export default class ScheduleSelector extends React.Component<PropsType, StateTy
     this.dates[0].forEach(time => {
       labels.push(
         <TimeLabelCell key={time.toString()}>
-          <TimeText>{this.renderInBrLocale(formatDate(time, this.props.timeFormat))}</TimeText>
+          <TimeText>{renderInBrLocale(formatDate(time, this.props.timeFormat))}</TimeText>
         </TimeLabelCell>
       )
     })
