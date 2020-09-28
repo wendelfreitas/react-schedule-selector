@@ -26,3 +26,19 @@ export const timeIsBetween = (start: Date, candidate: Date, end: Date): boolean 
 
   return candidateTime >= startTime && candidateTime <= endTime
 }
+
+export const renderInBrLocale = (date: string): StaticRangeInit => {
+  switch (date) {
+    case 'Tue':
+      return 'T'
+    case 'Wed':
+      return 'Q'
+    case 'Thu':
+      return 'Q'
+    case 'Sun':
+      return 'D'
+
+    default:
+      return 'S'
+  }
+}
